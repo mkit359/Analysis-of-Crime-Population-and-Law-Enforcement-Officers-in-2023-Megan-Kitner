@@ -32,4 +32,3 @@ print(f"Crime_Data_State shape: {Crime_Data_State.shape}")
 print(f"Officer_Data_State shape: {Officer_Data_State.shape}")
 print(f"Overall_Data shape: {Overall_Data.shape}")
 print(f"Summarized_Data shape: {Summarized_Data.shape}")
-
