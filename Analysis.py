@@ -72,7 +72,7 @@ print(f"Spearman Correlation between 'Total_Officers' and 'Total_Crime': {corr:.
 ## Correlation is 0.9206, indicating a strong positive correlation; p-value of 0.0000 suggesting the correlation is statistically significant
 
 ## All three comparisons show a strong positive correlaion and the p-values shows strong statistical significance that for those comparing crime and officer
-# amounts directly to population, as well as crime to officer.
+# amounts directly to population, as well as crime to officer. These values do no explicity account for population size, which is why the next comparison is important.
 
 corr, p_value = spearmanr(Summarized_Data['Officers_per_100k'], Summarized_Data['Crime_per_100k'])
 print(f"Spearman Correlation between 'Officers_per_100k' and 'Crime_per_100k': {corr:.4f}, P-value: {p_value:.4f}")
@@ -83,7 +83,6 @@ spearman_matrix = sub.corr(method = 'spearman')
 sub_100_spearman_matrix = sub_per_100k.corr(method = 'spearman')
 
 ### Outputs for Matrices
-print("Spearman Correlation ")
 print("Spearman Correlation Matrix (Total Values):\n", spearman_matrix, "\n")
 print("Spearman Correlation Matrix (100k Values):\n", sub_100_spearman_matrix, "\n")
 
@@ -97,30 +96,30 @@ plt.show()
 
 #### Visual for Officers vs Crime Correlation
 #Scatterplot w/regression line
-corr, p_value = spearmanr(Summarized_Data['Total_Crime'], Summarized_Data['Total_Officers'])
-plt.figure(figsize=(8,8))
-sns.regplot(x='Total_Crime', y='Total_Officers', data=Summarized_Data, scatter_kws={'alpha':0.6}, line_kws={'color':'red'})
-plt.title('Total Crime vs Total Officers by State (2023)')
-plt.xlabel('Total Crime')
-plt.ylabel('Total Officers')
-plt.show()
+# corr, p_value = spearmanr(Summarized_Data['Total_Crime'], Summarized_Data['Total_Officers'])
+# plt.figure(figsize=(8,8))
+# sns.regplot(x='Total_Crime', y='Total_Officers', data=Summarized_Data, scatter_kws={'alpha':0.6}, line_kws={'color':'red'})
+# plt.title('Total Crime vs Total Officers by State (2023)')
+# plt.xlabel('Total Crime')
+# plt.ylabel('Total Officers')
+# plt.show()
+#
+# corr, p_value = spearmanr(Summarized_Data['Total_Crime'], Summarized_Data['Population'])
+# plt.figure(figsize=(8,8))
+# sns.regplot(x='Total_Crime', y='Population', data=Summarized_Data, scatter_kws={'alpha':0.6}, line_kws={'color':'red'})
+# plt.title('Total Crime vs Population by State (2023)')
+# plt.xlabel('Total Crime')
+# plt.ylabel('Population')
+# plt.show()
 
-corr, p_value = spearmanr(Summarized_Data['Total_Crime'], Summarized_Data['Population'])
-plt.figure(figsize=(8,8))
-sns.regplot(x='Total_Crime', y='Population', data=Summarized_Data, scatter_kws={'alpha':0.6}, line_kws={'color':'red'})
-plt.title('Total Crime vs Population by State (2023)')
-plt.xlabel('Total Crime')
-plt.ylabel('Population')
-plt.show()
 
-
-corr, p_value = spearmanr(Summarized_Data['Crime_per_100k'], Summarized_Data['Officers_per_100k'])
-plt.figure(figsize=(8,8))
-sns.regplot(x='Crime_per_100k', y='Officers_per_100k', data=Summarized_Data, scatter_kws={'alpha':0.6}, line_kws={'color':'red'})
-plt.title('Crime vs Officers by State per 100k (2023)')
-plt.xlabel('Crime per 100k')
-plt.ylabel('Officers per 100k')
-plt.show()
+# corr, p_value = spearmanr(Summarized_Data['Crime_per_100k'], Summarized_Data['Officers_per_100k'])
+# plt.figure(figsize=(8,8))
+# sns.regplot(x='Crime_per_100k', y='Officers_per_100k', data=Summarized_Data, scatter_kws={'alpha':0.6}, line_kws={'color':'red'})
+# plt.title('Crime vs Officers by State per 100k (2023)')
+# plt.xlabel('Crime per 100k')
+# plt.ylabel('Officers per 100k')
+# plt.show()
 
 sns.regplot(
     x = 'Officers_per_100k',
